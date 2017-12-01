@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafxServerSite.entity;
+package javafxServerSide.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.math.BigInteger;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,17 +17,17 @@ import javax.persistence.Id;
  * @author ubuntu
  */
 @Entity
-public class Servicio implements Serializable {
+public class PersonaDeContacto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nombre;
-    private String descripcion;
-    private Collection<Proyecto> proyectos;
+    private BigInteger telefono;
+    private String email;
     
-
+    
     public Integer getId() {
         return id;
     }
@@ -44,23 +44,23 @@ public class Servicio implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public BigInteger getTelefono() {
+        return telefono;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setTelefono(BigInteger telefono) {
+        this.telefono = telefono;
     }
 
-    public Collection<Proyecto> getProyectos() {
-        return proyectos;
+    public String getEmail() {
+        return email;
     }
 
-    public void setProyectos(Collection<Proyecto> proyectos) {
-        this.proyectos = proyectos;
+    public void setEmail(String email) {
+        this.email = email;
     }
     
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -71,10 +71,10 @@ public class Servicio implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Servicio)) {
+        if (!(object instanceof PersonaDeContacto)) {
             return false;
         }
-        Servicio other = (Servicio) object;
+        PersonaDeContacto other = (PersonaDeContacto) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -83,7 +83,7 @@ public class Servicio implements Serializable {
 
     @Override
     public String toString() {
-        return "javafxServerSite.Entity.Servicio[ id=" + id + " ]";
+        return "javafxServerSite.Entity.PersonaDeContacto[ id=" + id + " ]";
     }
     
 }

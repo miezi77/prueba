@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafxServerSite.entity;
+package javafxServerSide.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,10 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Past;
 
 /**
- *
- * @author ubuntu
+ * Entidad Factura
+ * @author Arantzazu Azkona
  */
 @Entity
 public class Factura implements Serializable {
@@ -27,6 +30,8 @@ public class Factura implements Serializable {
     private Date fechaVencimiento;
     private Float importe;
     private Boolean estado;
+    @ManyToOne
+    @JoinColumn(name="nif")
     private Cliente cliente;
 
     
